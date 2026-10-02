@@ -4,7 +4,7 @@
 }
 
 html {
-	background-color: #b4c9d6;
+	background-color: #b7c8d3;
 	color-scheme: light;
 }
 
@@ -14,7 +14,7 @@ body {
 	font-family: Arial, sans-serif;
 	line-height: 1.6;
 	color: #12395a;
-	background-color: #b4c9d6;
+	background-color: #b7c8d3;
 }
 
 header {
@@ -24,8 +24,8 @@ header {
 	padding: 14px 20px;
 	text-align: center;
 	color: white;
-	background-color: #003b6f;
-	border: 6px solid #b9e6ff;
+	background: linear-gradient(135deg, #0664a8, #002e57);
+	border: 6px solid #b7c8d3;
 	border-radius: 6px;
 }
 
@@ -55,34 +55,25 @@ header p {
 }
 
 section {
-	display: flex;
-	align-items: stretch;
-	gap: 24px;
-	overflow-x: auto;
-	padding: 36px max(5%, 24px) 20px;
-	background-color: #b4c9d6;
-	scroll-snap-type: x mandatory;
-	scroll-padding-inline: max(5%, 24px);
-	scroll-behavior: smooth;
-	overscroll-behavior-x: contain;
+	margin-top: 36px;
+	margin-bottom: 20px;
+	background-color: #b7c8d3;
 }
 
-section > div {
+section > .row > .col > .timeline-card {
 	display: flex;
 	flex-direction: column;
-	flex: 0 0 310px;
-	min-height: 390px;
-	padding: 38px 22px 22px;
+	min-height: 300px;
+	padding: 26px 22px 22px;
 	overflow: hidden;
 	border-radius: 8px;
 	color: white;
 	background-color: #0878c9;
 	box-shadow: 0 6px 16px rgba(7, 55, 91, 0.15);
-	scroll-snap-align: start;
 	transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-section > div p {
+section > .row > .col > .timeline-card p {
 	margin-top: auto;
 	margin-bottom: auto;
 }
@@ -97,26 +88,26 @@ section > div p {
 	transition: max-height 0.25s ease, opacity 0.25s ease;
 }
 
-section > div:hover,
-section > div:focus {
+section > .row > .col:hover > .timeline-card,
+section > .row > .col:focus-within > .timeline-card {
 	transform: translateY(-6px) scale(1.015) rotate(0.4deg);
 	box-shadow: 0 14px 26px rgba(0, 59, 111, 0.3);
 }
 
-section > div:hover .hover-detail,
-section > div:focus .hover-detail {
+section > .row > .col:hover .hover-detail,
+section > .row > .col:focus-within .hover-detail {
 	max-height: 4rem;
 	opacity: 1;
 	margin-top: 10px;
 }
 
-section > div:hover img,
-section > div:focus img {
+section > .row > .col:hover img,
+section > .row > .col:focus-within img {
 	transform: scale(1.03);
 }
 
-section > div:nth-child(8),
-section > div:nth-child(9) {
+section > .row > .col:nth-child(8) > .timeline-card,
+section > .row > .col:nth-child(9) > .timeline-card {
 	background-color: #0068b5;
 }
 
@@ -157,41 +148,10 @@ body > p {
 	text-align: center;
 }
 
-@media (max-width: 800px) {
-	section {
-		display: block;
-		overflow-x: visible;
-		padding: 36px 0 12px;
-		scroll-snap-type: none;
-	}
-
-	section > div {
-		width: 100%;
-		min-height: 360px;
-		padding-top: 36px;
-		margin: 0 0 24px;
-	}
-
-	section img {
-		margin: 0 0 8px;
-	}
-
-	section > div:nth-child(8) img,
-	section > div:nth-child(9) img {
-		object-fit: contain;
-		object-position: center center;
-		background: white;
-		border: 4px solid #d9f2ff;
-	}
-
-	section > div p {
-		margin-top: 14px;
-		margin-bottom: 0;
-		line-height: 1.7;
-	}
-
+@media (max-width: 800px), (hover: none) {
 	.hover-detail {
-		max-height: 4rem;
+		max-height: none;
+		overflow: visible;
 		opacity: 1;
 		margin-top: 10px;
 	}
